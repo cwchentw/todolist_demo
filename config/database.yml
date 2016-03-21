@@ -1,0 +1,4 @@
+development:
+  adapter: sqlite3
+  database: "todos.sqlite3.db"
+  host: localhost

@@ -1,0 +1,32 @@
+<ul class="list-group">
+<% @todos.each do |todo| %>
+    <li class="list-group-item">
+        <form class="form-inline" role="form">
+            <div class="row">
+                <div class="col-md-6">
+                    <%= todo.body %>
+                    <span class="badge"><%= todo.category %></span>
+                </div>
+                <div class="col-md-6 text-right">
+                    <button class="btn btn-warning btn-sm" type="submit"
+                            formaction="/delete/<%= todo.id %>"
+                            formmethod="post">
+                        Delete
+                    </button>
+                    <button class="btn btn-info btn-sm" type="submit"
+                            formaction="/update/<%= todo.id %>"
+                            formmethod="get">
+                        Update
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </li>
+<% end %>
+</ul>
+<form class="form-inline" role="form">
+    <button class="btn btn-info" type="submit" formaction="/create" formmethod="get">Create TODO</button>
+    <button class="btn btn-warning" type="submit" formaction="/clear" formmethod="post">Clear TODOs</button>
+</form>
+
